@@ -61,7 +61,7 @@ export default {
 
     //observadores
     watch: {
-        async loading(val) {
+        async loading(val: any) {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
