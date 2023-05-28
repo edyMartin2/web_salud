@@ -3,7 +3,7 @@
         <VCol>
             <VRow>
                 <VCol cols="12" style="text-align: center;">
-                    <h1>Iniciar sesion</h1>
+                    <h1>Inicie sesión</h1>
                 </VCol>
                 <VCol cols="12">
                     <VTextField :value="email" variant="outlined" label="Correo" v-model="email">
@@ -18,6 +18,7 @@
                         size="x-large" variant="flat" @click="loading = !loading">
                         Iniciar secion
                     </v-btn>
+                    <RouterLink class="link" to="/signUp">No tengo una cuenta</RouterLink>
                 </VCol>
                 <VCol cols="12">
                     <v-snackbar v-model="loaddingErrorMessage">
@@ -140,3 +141,12 @@ export default {
     }
 }
 </script>
+
+<style>
+
+.link{
+    text-decoration: none;
+    color: #000;
+}
+
+</style>

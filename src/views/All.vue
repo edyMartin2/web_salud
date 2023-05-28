@@ -1,13 +1,6 @@
 <template>
     <v-layout>
         <v-app-bar color="teal-darken-4" v-show="isLogged">
-
-            <template v-slot:prepend>
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            </template>
-
-
-
             <v-card-text>
                 <v-text-field density="compact" variant="solo" label="Buscar" append-inner-icon="mdi-magnify" single-line
                     hide-details>
@@ -24,7 +17,7 @@
         <v-main>
             <v-container fluid>
                 <v-row dense>
-
+                    <ListServiceComponent></ListServiceComponent>
                 </v-row>
             </v-container>
         </v-main>
@@ -34,6 +27,8 @@
 
 import { onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router';
+import ListServiceComponent from '@/components/ListServiceComponent.vue';
+
 const router = useRouter();
 
 let isLogged = false
@@ -46,7 +41,8 @@ const LogOut = () => {
 onBeforeMount(() => {
     let token = sessionStorage.getItem('cookie')
     if (!token) {
-        router.push('/')
+        //router.push('/')
+        isLogged = true
     } else {
         isLogged = true
     }

@@ -1,12 +1,10 @@
 <template>
   <VContainer>
     <VRow>
-      <VCol cols="4">
+      <VCol offset="4" cols="4">
         <LogInComponent @finished="Next" v-show="isLogged"></LogInComponent>
       </VCol>
-      <VCol offset="2" cols="6">
-        <SignUpComponent></SignUpComponent>
-      </VCol>
+
     </VRow>
   </VContainer>
 </template>
