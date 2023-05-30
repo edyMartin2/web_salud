@@ -1,5 +1,5 @@
 <template>
-    <v-card width="50%" prepend-icon="mdi-home">
+    <v-card width="100%" prepend-icon="mdi-home">
         <v-card-item>
             <div>
                 <div class="text-overline mb-1">

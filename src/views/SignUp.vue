@@ -1,7 +1,7 @@
 <template>
     <VContainer>
-        <VRow>
-            <VCol offset="4" cols="4" style="text-align: center;">
+        <VRow align-center justify-center>
+            <VCol  offset-sm="0" offset-lg="4" cols="12" sm="12" lg="4" style="text-align: center;">
                 <SignUpComponent></SignUpComponent>
             </VCol>
         </VRow>

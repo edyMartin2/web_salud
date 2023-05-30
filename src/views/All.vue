@@ -7,11 +7,14 @@
                 </v-text-field>
             </v-card-text>
 
-            <v-spacer></v-spacer>
-
-            <v-btn icon @click="LogOut">
-                <v-icon>mdi-login</v-icon>
+            <v-btn @click="SignIn" v-if="$vuetify.display.lgAndUp">
+                Ingresar
             </v-btn>
+
+            <v-btn @click="SignUp" v-if="$vuetify.display.lgAndUp" variant="outlined">
+                Registrarme
+            </v-btn>
+
         </v-app-bar>
 
         <v-main>
@@ -36,6 +39,14 @@ let isLogged = false
 const LogOut = () => {
     sessionStorage.setItem('cookie', '')
     router.push('/')
+}
+
+const SignIn = ()=>{
+    router.push('/signIn')
+}
+
+const SignUp = ()=>{
+    router.push('signUp')
 }
 
 onBeforeMount(() => {

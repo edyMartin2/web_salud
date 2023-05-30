@@ -1,48 +1,45 @@
 <template>
-    <VContainer>
-        <VCol>
-            <VRow>
-                <VCol cols="12" style="text-align: center;">
-                    <h1>Cree una cuenta</h1>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="fullName" v-model="fullName" variant="outlined" label="Nombre completo">
-                    </VTextField>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="email" v-model="email" variant="outlined" label="Correo"></VTextField>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="password" v-model="password" type="password" variant="outlined" label="Contraseña">
-                    </VTextField>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="repeatPassword" v-model="repeatPassword" type="password" variant="outlined"
-                        label="Repite la contraseña">
-                    </VTextField>
-                </VCol>
-                <VCol cols="12">
-                    <v-btn block :disabled="uploading" :loading="uploading" class="text-none mb-4"
-                        @click="uploading = !uploading" color="teal-darken-3" size="x-large" variant="flat">
-                        Crear cuenta
-                    </v-btn>
-                    <RouterLink to="/" class="link">Iniciar sesion</RouterLink>
-                </VCol>
+    <VCard>
+        <VCardItem>
+            <VCol cols="12" style="text-align: center;">
+                <h1>Cree una cuenta</h1>
+            </VCol>
+            <VCol cols="12">
+                <VTextField :value="fullName" v-model="fullName" variant="outlined" label="Nombre completo">
+                </VTextField>
+            </VCol>
+            <VCol cols="12">
+                <VTextField :value="email" v-model="email" variant="outlined" label="Correo"></VTextField>
+            </VCol>
+            <VCol cols="12">
+                <VTextField :value="password" v-model="password" type="password" variant="outlined" label="Contraseña">
+                </VTextField>
+            </VCol>
+            <VCol cols="12">
+                <VTextField :value="repeatPassword" v-model="repeatPassword" type="password" variant="outlined"
+                    label="Repite la contraseña">
+                </VTextField>
+            </VCol>
+            <VCol cols="12">
+                <v-btn block :disabled="uploading" :loading="uploading" class="text-none mb-4"
+                    @click="uploading = !uploading" color="teal-darken-3" size="x-large" variant="flat">
+                    Crear cuenta
+                </v-btn>
+                <RouterLink to="/signIn" class="link">Iniciar sesion</RouterLink>
+            </VCol>
+            <VCol cols="12">
+                <v-snackbar v-model="loaddingErrorMessage">
+                    {{ errorMessage }}
 
-                <VCol cols="12">
-                    <v-snackbar v-model="loaddingErrorMessage">
-                        {{ errorMessage }}
-
-                        <template v-slot:actions>
-                            <v-btn color="pink" variant="text" @click="loaddingErrorMessage = false">
-                                Close
-                            </v-btn>
-                        </template>
-                    </v-snackbar>
-                </VCol>
-            </VRow>
-        </VCol>
-    </VContainer>
+                    <template v-slot:actions>
+                        <v-btn color="pink" variant="text" @click="loaddingErrorMessage = false">
+                            Close
+                        </v-btn>
+                    </template>
+                </v-snackbar>
+            </VCol>
+        </VCardItem>
+    </VCard>
 </template>
 <script lang="ts">
 
@@ -118,9 +115,8 @@ export default {
 }
 </script>
 <style>
-.link{
+.link {
     text-decoration: none;
     color: #000;
 }
-
 </style>

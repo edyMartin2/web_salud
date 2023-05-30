@@ -1,5 +1,5 @@
 <template>
-    <VCol cols="12">
+    <VCol cols="12" sm="12" md="6" lg="6">
         <CardServiceHelper></CardServiceHelper>
     </VCol>
 </template>

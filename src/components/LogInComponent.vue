@@ -1,43 +1,54 @@
 <template>
-    <VContainer>
-        <VCol>
-            <VRow>
-                <VCol cols="12" style="text-align: center;">
-                    <h1>Inicie sesión</h1>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="email" variant="outlined" label="Correo" v-model="email">
-                    </VTextField>
-                </VCol>
-                <VCol cols="12">
-                    <VTextField :value="password" variant="outlined" type="password" label="Contraseña" v-model="password">
-                    </VTextField>
-                </VCol>
-                <VCol cols="12" style="text-align: center;">
-                    <v-btn :disabled="loading" :loading="loading" block class="text-none mb-4" color="indigo-darken-3"
-                        size="x-large" variant="flat" @click="loading = !loading">
-                        Iniciar secion
-                    </v-btn>
-                    <RouterLink class="link" to="/signUp">No tengo una cuenta</RouterLink>
-                </VCol>
-                <VCol cols="12">
-                    <v-snackbar v-model="loaddingErrorMessage">
-                        {{ errorMessage }}
+    <VCard>
+        <VCardItem>
+            <VCol cols="12" sm="12" style="text-align: center;">
+                <h1>Inicie sesión</h1>
+            </VCol>
+            <VCol cols="12" sm="12">
+                <VTextField :value="email" variant="outlined" label="Correo" v-model="email">
+                </VTextField>
+            </VCol>
+            <VCol cols="12" sm="12">
+                <VTextField :value="password" variant="outlined" type="password" label="Contraseña" v-model="password">
+                </VTextField>
+            </VCol>
+            <VCol cols="12" style="text-align: center;" sm="12">
+                <v-btn :disabled="loading" :loading="loading" block class="text-none mb-4" color="teal-darken-3"
+                    size="x-large" variant="flat" @click="loading = !loading">
+                    Iniciar secion
+                </v-btn>
 
-                        <template v-slot:actions>
-                            <v-btn color="pink" variant="text" @click="loaddingErrorMessage = false">
-                                Close
-                            </v-btn>
-                        </template>
-                    </v-snackbar>
-                </VCol>
-            </VRow>
-        </VCol>
-    </VContainer>
+                <v-btn block class="text-none mb-4" color="red-accent-3"
+                    size="x-large" variant="flat" @click="goToSignUp">
+                    Crear cuenta
+                </v-btn>
+
+            </VCol>
+            <VCol cols="12" sm="12">
+                <v-snackbar v-model="loaddingErrorMessage">
+                    {{ errorMessage }}
+                    <template v-slot:actions>
+                        <v-btn color="pink" variant="text" @click="loaddingErrorMessage = false">
+                            Close
+                        </v-btn>
+                    </template>
+                </v-snackbar>
+            </VCol>
+        </VCardItem>
+        <VCardActions style="text-align: center;">
+            <VCol cols="12" style="text-align: center;" sm="12">
+                <VBtn variant="outlined">
+                    olvide mi Contraseña
+                </VBtn>
+            </VCol>
+        </VCardActions>
+    </VCard>
 </template>
 
 <script lang="ts">
 
+import router from '@/router';
+import { create } from 'domain';
 import { defineComponent, PropType } from 'vue';
 
 export default {
@@ -138,15 +149,24 @@ export default {
 
     created() {
         console.log(this.isFinished)
+    },
+
+    methods:{
+        goToSignUp(){
+        
+            router.push('/signUp')
+        }
     }
 }
 </script>
 
 <style>
-
-.link{
+.link {
     text-decoration: none;
     color: #000;
 }
 
+.rows {
+    width: 100%;
+}
 </style>
